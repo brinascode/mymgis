@@ -1,0 +1,73 @@
+
+<div class="container">
+	<h3> <a href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></h3>	</br>
+	
+
+	<h1> <img src="images/userIcon.png" width="5%" /> My info </h1>
+
+	<strong><p>Update your personal information here</p></strong>
+
+	</br>
+	
+
+	<button ng-hide="user.moreInfo.userType" ng-click="setAccTypeF()" class="btn btn-lg">Click to set your account to Teacher</button></br>
+	
+	<strong ng-show="user.moreInfo.userType">Teacher Account</strong>
+
+	<div style="border:solid;padding:10px" class="well">
+
+		<h3> Full name:{{user.moreInfo.fullName}}</h3>
+		</br>
+
+		<h3></h3>
+		
+		<input class="form-control" type="text" ng-model="nomCompletNew"/>
+		<button class="btn pinkButton" ng-click="newNomComplet()">Update Name</button>
+		</br></br>
+
+	</div></br>
+
+  
+
+
+   	<div style="border:solid;padding:10px" class="well"> 
+	<h3>Phone number(s)</h3>
+	<div ng-repeat="num in user.moreInfo.numerosDeTelephone track by $index">
+		<h3>{{num}}</h3>
+		<button class="btn btn-danger" ng-click="removeUserTelephone($index)">Remove</button>
+	</div></br>
+	
+	<p class="alert alert-warning">{{message}}</p>
+
+	
+		<input type="number" ng-model="moreInfoNew.telephone"  class="form-control">
+	</h3>
+	<button class="btn pinkButton" ng-click="newUserTelephone()">Add</button>
+ </div>
+
+
+<div style="border:solid;padding:10px" class="well">
+   	<h3>Avatar</h3>
+   Your avatar:<img ng-src="images/{{user.moreInfo.profilePic}}" alt="Pas d'image de profile" width="20%"
+   /></br>Choose an avatar by clicking on it</br>
+	
+	<img class="animated flipbree" src="images/profiles/1.png" alt="Pas d'image de profile" 
+	ng-click="changeAvatar('profiles/1.png')" width="20%">
+
+	<img class="animated flipbree" src="images/profiles/2.png" alt="Pas d'image de profile" 
+	ng-click="changeAvatar('profiles/2.png')" width="20%">
+
+	<img  class="animated flipbree" src="images/profiles/3.png" alt="Pas d'image de profile" 
+	ng-click="changeAvatar('profiles/3.png')" width="20%">
+
+	
+  
+   
+   </div></br>
+
+
+
+
+
+
+</div>

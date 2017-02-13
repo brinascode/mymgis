@@ -1,0 +1,167 @@
+<div class="container" style="margin:">
+    
+    <div class="row" ng-hide="true">
+        <center> Boutique
+            <h1 style="font-size:px;font-family:trench">
+            {{pageTitle.toUpperCase()}} 
+        </h1>  <strong>Pour plus de détails, cliquez sur l'article </strong>
+    </center>
+    </div> </br>
+
+
+
+    <div class="row" style="background-image:url('')">
+        
+         <div  class="col-lg-12 "  >
+             </br>   
+             <center> 
+                <img ng-hide="" ng-src="{{vitrinePic.img}}" alt="carousel's Place" 
+                ng-style="{'width':'{{vitrinePic.width}}','margin-top':'-20px'}"> 
+             
+
+                <h1 style="font-size:px;font-family:trench;color:black;margin-top:-0%">
+                {{pageTitle}} <span class="glyphicon glyphicon-arrow-down"></span>
+                 </h1> </br>
+
+                   
+                <h3>
+              
+                 </h3>
+               
+              
+                </center>
+         </div>
+
+       
+     </div>
+
+    <h3 ng-hide="true"> Rechercher par </h3> 
+    <button ng-hide="true" class="btn btn-default" ng-click="changeFilter()">{{mainFilterType}} </button> 
+
+
+    <div class="row" ng-show="produitFilter">
+           <center> <H1>  {{noProduits}}  </H1>    </center> 
+           <center> <H2>  {{loadingScreen}}</H2>  </br> 
+                <strong>Pour plus de détails, cliquez sur l'article </strong> </br> 
+            </center> 
+
+           </br>     
+                
+
+                <div ng-repeat="produit in produits track by $index" style="margin-top:-10%" >
+                     
+                        
+                     <div class="col-md-6 col-xs-6 well "  > 
+                          
+                          <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                             
+                            <center>  
+                                <div class="div"> 
+                                    <img ng-src="{{produit.mainImageUrl}}" 
+                                    alt="Image de l'article en charge - peut prendre quelques secondes. Si ce message persiste, veuillez rafraichir la page ou vérifier que votre connection à internet fonctionne correctement." width="50%" /> 
+                                <div>  </br>
+                            </center>
+                            <center>
+
+                                <div> 
+                                     <span style="">
+                                       <strong> 
+                                        <h3 style="font-family:">{{produit.nom}}</h3>
+                                        </strong>
+                                    </span>
+                                   
+                                    
+                                        <h4 class="btn " style="background-color:black;font-family:trench"><strong style="color:white">
+                                            {{produit.prix}} FCFA
+                                        </strong>
+                                        </h4>
+
+                                 
+                               <div> 
+                            
+                            </center>
+                            
+                            <strong>Teintes/Couleurs disponibles: </strong>
+                            <ul style="list-style-type:none;" class="row">
+                                    <div class="col-xs-2" 
+                                    ng-repeat="color in produit.colorCodes track by $index">   
+                                        <li  
+                                        ng-style=
+                                        "{'background-color':produit.colorCodes[$index],
+                                        'border-radius':'100px', 'width':'30px', 'height':'30px'}" 
+                                        ng-click="removeColor($index)">
+                                            <h3>
+                                                <center style="margin-top:10px;color:black">{{$index + 1}} 
+                                                </center>
+                                            </h3>
+                                        </li>
+                                    </div>
+                           </ul>
+
+                    
+                          
+                               
+                             </a>
+                            <button class="jaime btn" ng-click="newVote($index)"> 
+                                <span class="glyphicon glyphicon-heart"  style="color:#ff1844;30vw"></span>
+                                {{produit.votes.length}}
+                            </button>     
+                            
+                            <button class="btn btn-md ajouterPanier" ng-click="ajouterAuPanier($index)">
+                             <span class="glyphicon glyphicon-shopping-cart" style="30vw" >
+                                </span>+
+                            
+                            </button> 
+
+                   
+
+                        
+                     </div> 
+
+                </div> 
+
+            </div>
+
+            <div class="row" ng-show="boutiqueFilter"> 
+                </br>     
+                <div ng-repeat="boutique in boutiques track by $index" style="overflow-x:scroll">
+                     <h3>{{boutique.nom}}</h3> 
+
+                     <div ng-repeat="produit in boutique.articles"> 
+                         <div class="col-md-4" class="well"> 
+                            <img ng-src="{{produit.mainImageUrl}}" width="50%" /></br>
+
+                            <a ng-href="/produit/{{produit._id}}" style="text-decoration:none;color:black">
+                                <span style="font-size:30px">
+                                    {{produit.nom}}
+                                </span></br>
+                             </a>
+
+                                 <strong>Boutique: {{produit.boutique}} </strong></br>
+                                 <strong>Prix: </strong>{{produit.prix}} FCFA</br>
+                                <strong>Livraison:</strong></br>
+
+                                Gratuite pour : {{produit.livraison.gratuite}}</br>
+                                Payante à {{produit.livraison.payanteFixe.prix}} pour 
+                                {{produit.livraison.payanteFixe.lieux}}</br>
+                                *Pour tout autre endroit, le livreur vous contactera</br>
+
+                                
+
+                             <button class="jaime btn" ng-click="newVote($index)" > 
+                                <span class="glyphicon glyphicon-heart" style="30vw"></span>
+                                {{produit.votes.length}}
+                            </button>     
+                            <button class="btn btn-md" ng-click="ajouterAuPanier($index)" ><span class="glyphicon glyphicon-shopping-cart" style="30vw">
+                            </span>
+                             Ajouter au panier 
+                            </button> 
+
+                            
+                         </div> 
+                    <h3> 
+
+                </div> 
+
+            </div>
+</div>            

@@ -1,0 +1,274 @@
+<div ng-hide="isLoading" class="container" 
+style="margin:px;" >
+			</br><!-- Big jumbotron -->
+			<div class="jumbotron well row grad" style="margin:px;background-color:">
+				</br>
+
+
+		       <div class="col-md-6">
+		       			<center> 
+						<a href="/userInfo"> 
+							<img ng-src="images/{{user.moreInfo.profilePic}}" alt="Click to add an avatar!" class="img-responsive animated flip" width="30%" style="margin-top:-14px">
+						</a>
+						</center>
+						
+
+		       </div>
+
+				<div class="col-md-6">
+					<h1 style="text-align:leftr;font-size:30px" class="animated bounce">	
+						Welcome
+	 					{{user.local.username}} 
+						{{user.facebook.name}}
+						{{user.google.name}}!
+						</br>
+
+
+			    	</h1>
+		       </div> 
+
+		       <button type="button" class="btn well hover1" 
+						ng-click="showNewClassF()" ng-show="user.moreInfo.userType" style="background-color:white"><h3>+ Create Class</h3></button>
+	
+			</div>
+
+				<!-- Main white tabs / buttons -->
+				<div>
+					<div class="col-md-3 col-xs-12 roundBlock well "  style="background-color:">
+						<a href="/userInfo">
+						<center>
+								<h3>Info</h3>
+								<img src="images/userIcon.png" width="13.5%" />
+
+							<center>
+						</a>
+					</div>
+
+					<div class="col-md-3 col-xs-12 roundBlock well " >
+						<a href="/userInfo">
+						<center>
+								<h3>Messages  {{user.messages.length}}</h3>
+								<span class="glyphicon glyphicon-envelope" style="font-size:30px"></span>
+								
+							<center>
+						</a>
+					</div>
+
+					<div class="col-md-3 col-xs-12 roundBlock well " ng-click="showASectF()">
+						
+						<center>
+								<h3>Assignments 
+								<span class="label myLabel">{{user.assignments.length}}</span></h3>
+								<span class="glyphicon glyphicon-check" style="font-size:30px"></span>
+								
+							<center>
+					
+					</div>
+
+					<div class="col-md-3 col-xs-12 roundBlock well " style="background-color:" ng-click="showGoalSectF()" >
+						
+						<center>
+								<h3>Goals <span class="label myLabel"> {{user.goals.length}}</span> </h3>
+								<span class="glyphicon glyphicon-star" style="font-size:30px"></span>
+								
+							<center>
+						
+					</div>
+
+					
+				</div>
+
+				<!-- Makeshift "views"-->
+				<div class="row" style="margin-top:-px;">
+
+					<!--Goals:) -->
+				    <div ng-show="showGoalSect" class="row" style="background-color:">
+				    	<center> <h3 style="">My goals: </h3></center> </br>
+
+				    	  <div class="well col-md-6" style="background-color:orange">
+				    	  	<h4> To do: </h4></br>
+					    	  	<div ng-repeat="goal in user.goals">
+						    	  <strong style="color:red">For: {{goal.accomplishBy}}</strong> 
+						    	  <input type="checkbox" class="form-control" 
+						    	  ng-click="tickGoal($index)"/>
+						    	    
+						    	    <h4> {{goal.goal}}</h4></br>
+						    	</div>
+				    	  </div>
+
+				    	  <div class="well col-md-6" style="background-color:orange">
+					    	     <h4> Done!  </h4></br>
+					    	    <div ng-repeat="goal in user.tickedGoals">
+						    	 
+						    	      <span class="glyphicon glyphicon-ok"></span>{{goal.goal}}<button class="btn btn-danger" 
+						    	      ng-click="deleteGoal($index)">X</button>
+					    	    </div>
+
+
+				    	  </div></br>
+
+				    	  <strong>New Goal:</strong>
+				    	  <input type="text" class="form control" ng-model="newGoal.goal" />
+				    	  <strong>Accomplish by:</strong>
+				    	  <input type="date" class="form control" ng-model="newGoal.accomplishBy" />
+
+				    	 <button class="btn pinkButton" ng-click="addNewGoal()"> Add !</button>	
+				    </div>
+
+				    <!--Assingments -->
+				    <div ng-show="showASect" class="row" style="background-color:">
+				    	<center> <h3 style="">Assignments/Hw: </h3></center> </br>
+
+				    	  <div class="well col-md-6" style="background-color:orange">
+				    	  	
+					    	  	<div ng-repeat="hw in user.assignments">
+						    	  <span class="label myLabel">{{$index+1}}</span>
+						    	  	<strong style="color:red">For: {{hw.dueDate}}</strong> 
+						    	    <h4> {{hw.text}}</h4></br>
+						    	</div>
+				    	  </div>
+
+				    	
+				    </div>
+
+					<!-- To add classes (Teacher)-->
+					<div class="col-md-12 " ng-show="user.moreInfo.userType"></br></br>
+						
+						<div ng-show="showNewClass" class="row">
+							<strong><h3>New class</h3></strong>
+							
+							<strong class="col-md-4"> Name 
+									<input ng-model="newClass.name" type="text" class="form-control" />
+										
+							</strong>
+
+							<strong class="col-md-4"> For year 
+									<input ng-model="newClass.year" type="number" class="form-control" />
+										
+							</strong>
+
+						<strong class="col-md-4"> Class Type  
+										<select class="form-control" ng-model="newClass.classType">
+
+										<option >Form class</option>
+										<option>Subject class</option>
+										<option>Club</option>
+
+									  </select>
+							</strong></br></br></br>
+
+								<button class="btn btn-danger btn-lg" 
+								ng-click="createClass()">Save</button>
+						</div>
+						
+					</div>
+
+					<!--Edit Class (Teacher) -->
+						<div class="col-md-12 col-xs-12 roundBlock well" ng-show="showModClass">
+							
+							<strong class="col-md-3">Class name:
+								<input class="form-control" ng-model="modifying.name">
+							</strong>
+							
+							
+							
+						
+							<strong class="col-md-3">  Type:
+											<select class="form-control" ng-model="modifying.classType">
+
+											<option>Form class</option>
+											<option>Subject class</option>
+											<option>Club</option>
+
+										  </select>
+							</strong>
+
+							<strong class="col-md-3"> For year 
+										<input ng-model="modifying.year" type="number" class="form-control" />
+											
+							</strong>
+
+
+
+							<strong class="col-md-3"> Students:</br>
+										<strong ng-repeat="stu in modifying.students">
+											{{stu.name}}
+											<button class="btn btn-danger btn-xs"
+											 ng-click="removeStudent($index)">X</button>
+										</strong>
+											
+							</strong>
+
+							<strong class="col-md-4"> Join requests from:</br>
+										
+										<strong ng-repeat="req in modifying.joinRequests">
+											 {{req.name}} 
+											<button class="btn btn-success 					btn-xs" ng-click="ansJoinReq(true,$index)">Accept</button>
+											<button class="btn btn-danger btn-xs" ng-click="ansJoinReq(false,$index)">Deny</button></br></br>
+										
+										</strong>
+											
+							</strong></br></br></br></br></br>
+
+							<button class="btn btn-success btn-lg col-md-3" ng-click="saveClassMod()">Save Changes</button>
+
+						</div>
+					
+					<!--Class Finder (Student) -->
+					<div class="col-md-12 " ng-hide="user.moreInfo.userType">
+						<button class="btn  btn-lg" ng-click="findAllClasses()"> 
+							Click to join a class or club!</button>
+						<div ng-repeat="class in allClasses">
+							{{class.name}} (Year {{class.year}} )
+							<button class="btn btn-xs btn-default" 
+							ng-click="joinAClass($index)" ng-hide="class.sentReq"> 
+							Join</button>
+							<button class="btn btn-xs btn-warning" 
+							ng-show="class.sentReq" > 
+							Request sent</button>
+						
+						</div>
+					</div>
+
+
+					</br></br>
+
+					<!--Class list (for both students and teachers) -->
+					<div class="col-md-12 col-xs-12 roundBlock " style="background-color:" 
+					>
+						
+							
+							<center>
+								<h3>My classes:</h3>
+								
+								<div ng-repeat="class in Classes track by $index" class="hover1">
+								<a ng-href="class/{{class._id}}" >
+									<strong>{{class.name}} Year{{class.year}}
+									 ({{class.classType}})</strong></a>
+								  
+								   <button class="btn btn-xs btn-warning" 
+								   ng-click="modClass($index)" ng-show="user.moreInfo.userType">Edit </button>
+								   
+								   <button class="btn btn-xs btn-danger" 
+								   ng-click="eraseClass($index)" ng-show="user.moreInfo.userType">X</button>
+								  
+								</div></br>
+						
+						
+				    </div>
+
+
+
+			</div>
+
+
+
+			</br></br>
+
+
+
+</div>
+
+		
+
+

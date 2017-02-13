@@ -1,0 +1,118 @@
+<div class="container" >
+    <h3> <a ng-href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></h3>
+    
+        <div class="row" ng-repeat="class in Class"> 
+            <center>
+
+                    	<div class="col-lg-12 well grad2">
+                    		
+                            <a ng-href="" style="text-decoration:none;color:black">
+                                            
+                                        <h1>{{class.name}}</h1>
+
+                                        <strong>Year{{class.year}},</strong>
+                                        <strong>Teacher:{{class.teacherName}}</strong>
+                                        </br>
+                            </a>
+
+                    	</div>
+                         <!-- Assignments-->
+                        <div class="col-lg-6 well">
+                             <button class="btn btn-md btn-info" ng-show="user.moreInfo.userType" ng-click="startNewA()">
+                                New assignment
+                             </button> </br>
+
+
+                               <div ng-show="showNewASect">
+
+                                 <strong>  Text : </strong> 
+                                 <textarea class="form-control" ng-model="newA.text" >       </textarea>
+                                  <strong> Due  :  </strong>
+                                  <input type="date" class="form-control" 
+                                  ng-model="newA.dueDate"/>
+                                  <button ng-show="editButton?" ng-click="editA($index)" 
+                                  class="btn btn-success"> 
+                                  Edit </button>
+                                  <button ng-hide="editButton?" ng-click="createA()" class="btn tbn-success"> 
+                                  Post </button>
+                                 
+                             </div>
+
+                             <h3><span class="glyphicon glyphicon-check"></span>Assignments</h3>  
+                             
+                             <strong ng-repeat="a in class.assignments">
+                                <h4 class="label"><strong>{{$index+1}}</strong></h4>
+                               Created: {{a.postDate}} </br>
+                               Required:  {{a.text}} </br>
+                               Due: {{a.dueDate}} </br>
+                               <button ng-show="user.moreInfo.userType" class="btn btn-xs btn-danger"ng-click="deleteA($index)">X</button>
+                               <button ng-show="user.moreInfo.userType" class="btn btn-xs btn-warning"ng-click="startEditA($index)">Edit</button>
+                               </br></br>
+                            </strong>
+
+                        </div>
+
+                        <div class="col-lg-6 well row">
+                            <!-- Last Session and Next session Board-->
+                            <a ng-href="" style="text-decoration:none;color:black">
+                                            
+                                        <h3><span class="glyphicon glyphicon-time"></span>Class Details</h3></br>
+
+                                       <h4> <span class="glyphicon glyphicon-ok"></span>
+                                       <strong>Last Class : {{class.lastSession[0].text}}
+                                       </strong>
+                                       </br><span class="glyphicon glyphicon-time"></span>
+                                       <strong>Next Class : {{class.nextSession[0].text}}
+                                       </strong></h4>
+
+
+                                        <div class="col-md-6" ng-show="user.moreInfo.userType">
+                                          <textarea class="form-control" 
+                                          ng-model="newLastSessionO.session">
+
+                                          </textarea>
+                                          <button class="btn btn-success" ng-click="newLastSessionF()">Update today's class</button>
+                                       </div>
+
+                                         <div class="col-md-6" ng-show="user.moreInfo.userType">
+                                          <textarea class="form-control" 
+                                          ng-model="newNextSessionO.session">
+
+                                          </textarea>
+                                          <button class="btn btn-success" ng-click="newNextSessionF()" >Update next class' schedule
+                                          </button>
+                                       </div>
+                                       
+
+                            </a>
+
+                        </div>
+                	
+                          
+                    <div class="col-lg-12">
+                        <span>            
+                            <label> <h3><span class="glyphicon glyphicon-comment"></span> Do you have a question or concern? </h3> </label> 
+                            <textarea class="form-control" ng-model="newComment.body">
+                            </textarea> 
+                            </br> 
+
+                            <button class="btn pinkButton" ng-click="postComment()"> 
+                                Post!
+                            </button> 
+                        </span>   </br> </br> 
+
+                        <div style="text-align:left" ng-repeat="comment in comments track by $index" class="well"> 
+                            <span style="text-align:left">
+                            Date: {{comment.date}}  </br> 
+                             <img ng-src='images/{{comment.profilePic}}' width="8%"/> 
+                            From: {{comment.author}}  </br> 
+                            {{comment.body}}        </br> 
+                             </span>
+                        </div>              
+                    
+                    </div>
+
+            </center>                 
+        </div>
+
+</div>

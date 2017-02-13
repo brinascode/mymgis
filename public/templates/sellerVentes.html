@@ -1,0 +1,61 @@
+<div class="container">
+	</br>
+	<h3> <a href="/profile"><span class="glyphicon glyphicon-arrow-left"></span> Profile</a></h3>
+	<h3> <img src="images/moneyIcon.png" width="5%" /> Mes commandes (Ventes) en cours</h3>
+	</br>
+	
+		
+		<center><h2>{{loadingMessage}}</h2></center>
+	
+	<div class="row" ng-hide="isLoading">
+		<strong> Merci de contacter la cliente pour la livraison!</strong></br>
+
+		<div class="well col-lg-4" ng-repeat="commande in commandes">
+ 				<h3>Commande</h3></br>
+
+ 			<label> Article(s) livré(s)? Oui <input type="checkbox" ng-click="deliveryConfirmed($index)"></input> </label> </br>
+
+ 			
+ 				<h3 ng-show="commande.deliveryConfirmed"><span class="glyphicon glyphicon-ok" style="color:green"> 
+ 						Livraison effectué
+ 				    </span> 
+ 				</h3>
+ 		
+ 			</br>
+			
+			<strong>Numéro de commande:</strong> {{commande._id}} </br>
+			<strong>Date de la commande:</strong> {{commande.date}} </br>
+			<strong>Nom de l'article:</strong> {{commande.produitNom}} </br>
+			<strong>Commandé par: </strong>{{commande.acheteur}} </br>
+			<strong>Contacts de la cliente:</strong>
+			{{commande.acheteurContacts[0]}},
+			{{commande.acheteurContacts[1]}}, 
+			{{commande.acheteurContacts[2]}}</br>
+			<strong>Quantité:</strong>{{commande.quantite}} </br>
+			<strong>Prix: </strong> {{commande.prix}} </br>
+			<strong>Couleur(s) de l'article: </strong> {{commande.colorChoice}} </br>
+
+		    <strong>Politique de livraison pour cet article: </strong> </br>
+			Gratuite ici: {{commande.livraison.gratuite}} </br>
+			Payante à {{commande.livraison.payantePrix}} pour 
+			{{commande.livraison.payanteLieux}} </br>
+			Pour tout autre endroit, contactez la cliente 
+		   </br>
+
+			<strong>La livraison pour cette commande:</strong> 
+			{{commande.thisLivraison}}
+		    </br></br>
+
+				<p style=""> Merci de contacter votre client/cliente pour effectuer la livraison.Le client/la cliente doit avoir le meme numéro de reçu que vous. </p> 
+
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+</div>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My MGIS</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="stylesheets/shop-homepage.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="stylesheets/simple-sidebar.css" rel="stylesheet">
+
+    
+
+     <!-- Bootflat!! -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css" rel="stylesheet">
+     <link href="stylesheets/bootflat.min.css" rel="stylesheet">
+
+     <!-- Add to homescreen web app -->
+     <link rel="stylesheet" type="text/css" href="stylesheets/addtohomescreen.css">
+
+
+      <!-- Material design CSS -->
+     <link href="matedesigncss/mdb.css" rel="stylesheet">
+    <link href="matedesigncss/style.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
+        #C91F37 #f62e46
+    <![endif]-->
+
+<base href="/">
+<style>
+
+
+@font-face {
+    font-family:bernado;
+    src: url(fonts/bernadomodabold.ttf);
+}
+
+
+@font-face {
+
+  font-family:trench;
+  src: url(fonts/trench.ttf);
+}
+
+
+@font-face {
+
+  font-family:dalmais;
+  src: url(fonts/dalmais.otf);
+}
+
+
+h3,h1,h2 {
+  font-family:Arial;
+  color:black;
+}
+
+.grad {
+
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, green, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, green, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, green, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #3cc33c); /* Standard syntax */
+}
+.grad2 {
+
+  background: pink; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #ff1844, purple); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #ff1844, purple); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #ff1844, purple); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, yellow,green ); /* Standard syntax */
+}
+
+.shopBanner {
+  font-family:sans-serif;
+}
+
+
+.frontLinks
+{
+    text-decoration:;
+    color:white;
+    font-size:20px;
+    font-family: ;
+
+}
+
+.frontLinks:hover{
+    color:white;
+    text-decoration: ;
+    background-color:#f62e46;
+
+}
+
+.siteTheme {
+
+ background-color:#ff1844;
+ color:white;
+}
+
+.pinkButton{
+    background-color:#20a720;
+    color:white;
+    border:none;
+}
+
+.jaime{
+    border-radius:100px;
+    background-color:black;
+}
+
+.ajouterPanier{
+    border-radius:;
+    background-color:black;
+}
+
+a{
+    text-decoration:none;
+    color:black;
+}
+
+a:hover {
+    color:black;
+}
+
+.getBlack {
+    color:black;
+}
+
+.roundBlocks{
+
+border-right: 5px solid #000;
+border-left: 5px solid #000;
+border-top: 5px solid #000;
+border-bottom: 5px solid #000;
+border-radius:100px;
+}
+
+.roundblock :hover{
+  background-color:#f62e46;
+}
+
+.myP {
+  font-size:25px;
+}
+
+.div {
+    width:200px;
+    height:150px;
+    position:relative;
+    display:inline-block;
+    overflow:hidden;
+}
+
+.div > img {
+    position:absolute;
+    top:50%;
+    min-height:100%;
+    display:block;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width:100%;
+}
+
+.ulY {
+    list-style-type: none;
+    margin: 0;
+    margin-left:-8%;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+    background-color:black;
+}
+
+.mine li{
+  height:50px;
+  margin-left:-20%;
+  margin-top:5%;
+
+
+}
+
+.mine ul{
+  
+  margin-top:5%;
+
+
+}
+
+.mine h2{
+  color:white;
+  font-family: trench;
+ margin-top:;
+ font-weight: 200;
+
+}
+
+
+.mine a{
+  margin-top:5%;
+
+}
+.mine{
+  list-style-type: none;
+}
+
+.mine :hover {
+  opacity:0.7;
+  color:black;
+}
+
+.itemHover :hover{
+  opacity:0.7;
+
+}
+
+.hover1  :hover{
+  font-size:30px;
+    opacity:0.7;
+}
+
+body {
+background-color:;
+background-image:url("images/pics2/hi");
+}
+
+.back{
+  background-color:rgba(255, 255, 255, 1);
+  border-radius:5px;
+  padding:px;
+}
+
+
+@keyframes brina {
+  from {background-color:yellow;}
+  to {background-color:green;}
+}
+
+body{
+  animation-name:;
+  animation-duration:3s;
+}
+
+@keyframes flipbree {
+  from {transform : rotateY(60deg);}
+  to {transform : rotateY(180deg);background-color:orange;}
+}
+
+.flipbree:hover {
+  animation-name:flipbree;
+  animation-duration:2s;
+  background-color:orange;
+}
+
+@keyframes myLabel{
+  0% {background-color:green;}
+  100%  {background-color:orange;}
+ 
+}
+
+.myLabel {
+  animation-name:myLabel;
+  animation-duration:4s;
+}
+
+.pinkButton:hover {
+  background-color:orange;
+}
+
+</style>
+
+
+   
+</head>
+
+<body ng-app="myMGIS" ng-controller="AcceuilleController" class="rotated">
+
+
+ <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation" style="background-color:#231f1f;border:none;color:white" > 
+        <div class="container" >
+            <img ng-show="false" src="images/kk.jpg" width="4%"/> 
+            <a class="navbar-brand animated bounce" href="/" 
+            style="font-family:trench;font-size:4.8vw;color:white;background-color:;margin-top:px;" >
+               <span style="color:green" >M</span>y MGIS 
+            </a>
+            
+            <!-- Brand and toggle get grouped for better mobile display
+            This is the toggle stuff 1)Get toggle 2)Do real 3)Link them -->
+            <div class="navbar-header">
+                
+              
+             
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar" style="background-color:#ff1844"></span>
+                    <span class="icon-bar" style="background-color:#ff1844"></span>
+                    <span class="icon-bar" style="background-color:#ff1844"></span>
+                  </button>
+
+
+
+                  <button ng-show="isAuthen"  class="navbar-toggle" data-toggle="collapse">
+                        <a href="/profile"><span class="glyphicon glyphicon-user" 
+                          style="color:white;font-size:17px"></a>
+                    </button>
+
+
+                  <button ng-hide="isAuthen"   class="navbar-toggle" data-toggle="collapse">
+                        <a href="/authen"><span class="glyphicon glyphicon-user" 
+                          style="color:white;font-size:17px"></a>
+                    </button>
+
+                 
+                
+            </div>
+
+
+
+
+
+            <!-- Collect these nav links, forms, and other content for toggling (Real)-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav" >
+                
+
+
+                    <li class="getBlack">
+                       <a  href="/" style="color:white"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    </li>
+
+                     <li ng-hide="isAuthen">
+                       <a  href="/authen" style="color:white">Sign up / Login</a>
+                    </li>
+                    <li ng-show="isAuthen">
+                        <a ng-click="logout()" style="color:white">Logout</a>
+                    </li>
+                    <li ng-show="isAuthen">
+                        <a style="font-size:20px" style="color:white">Welcome 
+                          {{user.local.username}} {{user.facebook.name}}</a> 
+
+                    </li>
+
+                     <li ng-show="isAuthen">
+                        <a href="/profile" style="color:white"><span class="glyphicon glyphicon-user" style="font-size:17px"> Profile</a>
+                    </li>
+
+                     
+
+                </ul>
+            </div>
+            
+        
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+     <!-- Actual page -->
+
+     <div ng-view class="row" style="margin-top:-2%"> </div></br> 
+  
+    <!-- /.container -->
+      <!-- Footer Space-->
+    <nav class="container" style="width:100%;position:" ng-hide="">
+
+      
+            </br></br></br></br>   </br></br></br></br>   </br></br></br></br>   </br></br></br></br>   </br></br></br></br> 
+        <!-- Footer -->
+        <footer style="background-color:black;" class="navbar-collapse">
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <center>
+                 
+                
+                    <p style="color:white">  Copyright &copy; My MGIS 2016</br>All rights reserved</p>
+                    </center>
+                </div>
+
+                      
+            </div>
+        </footer>
+
+    </nav>
+    <!-- /.container -->
+
+
+
+
+    <!-- jQuery and bootflat-->
+    <script src="javascripts/jquery.js"></script>
+    <script src="bootflat/js/icheck.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/js/jquery.fs.selecter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/js/jquery.fs.stepper.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script  src="javascripts/angular.min.js"></script>
+<script  src="javascripts/angular-ui-router.min.js"></script>
+<script src="javascripts/angular-route.min.js"></script>
+<script  src="javascripts/bootstrap.js"></script>
+
+<script  src="javascripts/modules/AfriBelle.js"></script>
+<script  src="javascripts/controllers/AcceuilleController.js"></script>
+<script  src="javascripts/controllers/panier.js"></script>
+<script  src="javascripts/controllers/boutiques.js"></script>
+<script  src="javascripts/controllers/boutiquePage.js"></script>
+<script  src="javascripts/controllers/LogSign.js"></script>
+
+
+<script  src="javascripts/controllers/vitrine.js"></script>
+<script  src="javascripts/controllers/boutiques.js"></script>
+<script  src="javascripts/controllers/class.js"></script>
+<script  src="javascripts/controllers/profile.js"></script>
+
+<script  src="javascripts/controllers/userInfo.js"></script>
+<script  src="javascripts/controllers/userCommandes.js"></script>
+<script  src="javascripts/controllers/myBoutique.js"></script>
+<script  src="javascripts/controllers/sellerVentes.js"></script>
+<script  src="javascripts/controllers/adminPage.js"></script>
+<script  src="javascripts/controllers/aide.js"></script>
+
+<script  src="javascripts/services/authen.js"></script>
+<script  src="javascripts/services/userModifs.js"></script>
+<script  src="javascripts/services/sellerFunctions.js"></script>
+<script  src="javascripts/services/adminFunctions.js"></script>
+<script  src="javascripts/services/customerToProduct.js"></script>
+<script  src="javascripts/services/teacherFunctions.js"></script>
+
+
+<script src="javascripts/ospry.js"></script>
+
+
+   <!-- Material Design -->
+<script src="matedesignjs/mdb.js"></script>
+<script src="matedesignjs/tether.js"></script>
+
+
+<script src='javascripts/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
+<script src='javascripts/cloudinary/jquery.iframe-transport.js' type='text/javascript'>
+</script>
+<script src='javascripts/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
+<script src='javascripts/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
+
+<script src="javascripts/addtohomescreen.min.js"></script>
+<script src="http://hammerjs.github.io/dist/hammer-time.min.js"></script>
+<script>
+addToHomescreen();
+//http://hammerjs.github.io/dist/hammer-time.min.js
+
+
+
+</script>
+ <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        //#ADC607#ED4938#F87117#757D75
+        </script>
+
+</body>
+
+</html>

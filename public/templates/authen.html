@@ -1,0 +1,39 @@
+<center><div class="row container" style="margin:px" id="scrollHere1">
+		<div class="well col-md-12" >
+			<h3> <a href="/"><span class="glyphicon glyphicon-arrow-left"></span> 
+				Back </a></h3>	</br>
+			<h1 style="text-align:center"><span class="glyphicon glyphicon-log-in"></span>Login / Signup</h1></br>
+				<center><strong>{{message}}	</strong></center></br></br></br>
+
+
+
+				<strong class="alert alert-warning" ng-show="showM2">{{message2}}</strong>
+			
+			<center>
+				<label>Username
+				<input type="text" class="form-control" ng-model="sign.username" name="username"/>
+				</label></br>
+
+				
+				<label>Password
+					<input type="password" class="form-control" ng-model="sign.password" name="password"/>
+				</label></br></br>
+
+
+				<button ng-click="signup()" class="btn  btn-lg  pinkButton "> Sign up
+				</button>
+
+				<button ng-click="login()" class="btn  btn-lg  pinkButton"> Login
+				</button>
+
+				 
+			</center>
+
+
+			
+		</div>
+</div></center>
+
+
+
+

@@ -1,0 +1,81 @@
+Improvements:
+assignment done
+monitoring goals
+uploading files
+prof pics
+chat
+
+putting the id field in your mongoose model creates an actual id field!!
+
+
+
+
+
+
+<div class="col-md-3 col-xs-6 roundBlock well" 
+					style="background-color:" ng-show="user.moreInfo.admin">
+					<a href="/adminPage">
+					<center>
+							<h3>Admin</h3>
+							<img src="images/userIcon.png" width="17%" />
+						<center>
+					</a>
+				</div>
+
+
+so mongod makes database instance in a directory, on a port
+mongo should connect to that port
+mongo --port 27017
+
+
+
+
+db.boutiques.update({nom:"KASSA & MADIYA beauty shop"},{$set:{"nom":"KASSA.MARKEL & beauté"}})
+
+mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
+db.commandes.find({})
+db.boutiques.find({nom:"KASSA & MADIYA beauty shop"}) shop1 , shop1p
+
+for(var i=0;i<db.produits.find({boutique:"KASSA & MADIYA beauty shop"}).length;i++){
+ db.produits.find({boutique:"KASSA & MADIYA beauty shop"})[i].livraison = db.boutiques.find({nom:"KASSA & MADIYA beauty shop"})
+}
+
+For mongo console
+mongo ,,then
+use mymgis
+
+make em order with couleurs
+//colors validation
+
+mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
+
+
+
+db.users.find().pretty()
+"google.email":"Armanda.Ahoua@gmail.com"
+
+db.commandes.remove({
+  "deliveryConfirmed":true
+})
+
+db.usercollection.find()
+
+db.produits.update(
+    {"boutiqueId":"57bc0f4e69a51711008aecc2"},
+    {
+      $set: { "type": "random"
+              }
+
+   
+    },
+    {multi: true}
+     
+)
+
+
+ { multi: true}
+db.users.find({"google.email":"armandeafribelle@gmail.com"})
+
+
+username and password cant be same
+in mongoose schema never put type as a field!!!
