@@ -22,7 +22,7 @@ else{
 
 
 //Teacher stuff 
-//only teachers can create classes and add students.Students can only see their classes!!
+//only teachers can create classes and add students. Students can only see their classes!!
 	//Create and erase class
 $scope.showNewClass = false
 $scope.newClass={}
@@ -57,10 +57,13 @@ $scope.removeStudent = function($index){
 
 
 
-//Students --find class
+//Students finding their classes/clubs etc
 $scope.allClasses = []
+$scope.showFindClasses = false
+
 $scope.findAllClasses = function(){
 	//$scope.allClasses
+	$scope.showFindClasses = !$scope.showFindClasses
 	teacherFunctions.findAllClasses($scope)
 }
 
@@ -79,7 +82,7 @@ $scope.joinAClass = function($index){ //TD: allow user to cancel req!
 //Showing Assignments
 $scope.showASect = false
 $scope.showASectF = function(){
-	$scope.showASect = !$scope.showASect
+	windowsWork(0)
 }
 $scope.getMyA = function(){
 	teacherFunctions.getMyA($scope)
@@ -90,7 +93,7 @@ $scope.getMyA()
 $scope.showGoalSect = false
 $scope.newGoal = {}
 $scope.showGoalSectF = function(){
-	$scope.showGoalSect = !$scope.showGoalSect
+	windowsWork(1)
 }
 $scope.addNewGoal = function(){
 	teacherFunctions.addNewGoal($scope)
@@ -101,5 +104,26 @@ $scope.tickGoal = function($index){
 $scope.deleteGoal = function($index){
 	teacherFunctions.deleteGoal($scope,$index)
 }
+
+
+//Announcements:
+$scope.showAnnSect = false
+$scope.showAnnSectF = function(){
+	windowsWork(2)
+}
+
+//So that two makeshift windows arent opened.
+var windowsWork = function(index){
+	var windows = [$scope.showASect,$scope.showGoalSect,$scope.showAnnSect]
+	for(var i=0;i<=windows.length-1;i++){
+		var open = windows[index]
+		open = true
+		var close = windows[i] 
+		if(index != close ){
+			close = false
+		}
+	}
+}
+
 
 }])

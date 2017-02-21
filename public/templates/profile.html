@@ -1,15 +1,16 @@
-<div ng-hide="isLoading" class="container" 
-style="margin:px;" >
-			</br><!-- Big jumbotron -->
+<div ng-hide="isLoading" class="container" style="margin:px;" >
+			</br>
+
+			<!-- Big jumbotron -->
 			<div class="jumbotron well row grad" style="margin:px;background-color:">
-				</br>
+			   </br>
 
 
 		       <div class="col-md-6">
 		       			<center> 
-						<a href="/userInfo"> 
-							<img ng-src="images/{{user.moreInfo.profilePic}}" alt="Click to add an avatar!" class="img-responsive animated flip" width="30%" style="margin-top:-14px">
-						</a>
+							<a href="/userInfo"> 
+								<img ng-src="images/{{user.moreInfo.profilePic}}" alt="Click to add an avatar!" class="img-responsive animated flip" width="30%" style="margin-top:-14px">
+							</a>
 						</center>
 						
 
@@ -27,31 +28,76 @@ style="margin:px;" >
 			    	</h1>
 		       </div> 
 
-		       <button type="button" class="btn well hover1" 
-						ng-click="showNewClassF()" ng-show="user.moreInfo.userType" style="background-color:white"><h3>+ Create Class</h3></button>
+
+
+			   <!--Class Finder (Student) -->
+					<div class="col-md-6 col-xs-12" ng-hide="user.moreInfo.userType">
+						<button class="btn  btn-lg" ng-click="findAllClasses()"> 
+							Click to join a class or club!</button>
+						<div ng-repeat="class in allClasses">
+							{{class.name}} (Year {{class.year}})
+							<button class="btn btn-xs btn-default" 
+							ng-click="joinAClass($index)" ng-hide="class.sentReq"> 
+							Join</button>
+							<button class="btn btn-xs btn-warning" 
+							ng-show="class.sentReq" > 
+							Request sent</button>
+						
+						</div>
+					</div>
+
+
+						<!--Class list (for both students and teachers) -->
+					<div class="col-md-6 col-xs-12 roundBlock " 
+					style="background-color:">		    
+					 			<h3>My classes:</h3>
+							
+								
+								<div ng-repeat="class in Classes track by $index" class="hover1">
+									<a ng-href="class/{{class._id}}" >
+										<strong>{{class.name}} Year{{class.year}}
+										 ({{class.classType}})</strong>
+									 </a>
+								  
+								   <button class="btn btn-xs btn-warning" 
+								   ng-click="modClass($index)" ng-show="user.moreInfo.userType">Edit </button>
+								   
+								   <button class="btn btn-xs btn-danger" 
+								   ng-click="eraseClass($index)" ng-show="user.moreInfo.userType">X</button>
+								  
+								</div></br>
+						
+						
+				    </div>
+
+				    <button type="button" class="btn well hover1" 
+						ng-click="showNewClassF()" ng-show="user.moreInfo.userType" 
+						style="background-color:white"><h3>+ Create Class</h3>
+			  		 </button>
 	
 			</div>
 
 				<!-- Main white tabs / buttons -->
-				<div>
+				<div class="row">
 					<div class="col-md-3 col-xs-12 roundBlock well "  style="background-color:">
 						<a href="/userInfo">
 						<center>
 								<h3>Info</h3>
-								<img src="images/userIcon.png" width="13.5%" />
+								<span class="glyphicon glyphicon-user" style="font-size:30px"></span>
 
 							<center>
 						</a>
 					</div>
 
-					<div class="col-md-3 col-xs-12 roundBlock well " >
-						<a href="/userInfo">
+					<div class="col-md-3 col-xs-12 roundBlock well" ng-click="showAnnSectF()" >
+						
 						<center>
-								<h3>Messages  {{user.messages.length}}</h3>
-								<span class="glyphicon glyphicon-envelope" style="font-size:30px"></span>
+
+								<h3>Announcements {{user.messages.length}}</h3>
+								<span class="glyphicon glyphicon-education" style="font-size:30px"></span>
 								
-							<center>
-						</a>
+						<center>
+						
 					</div>
 
 					<div class="col-md-3 col-xs-12 roundBlock well " ng-click="showASectF()">
@@ -79,16 +125,16 @@ style="margin:px;" >
 				</div>
 
 				<!-- Makeshift "views"-->
-				<div class="row" style="margin-top:-px;">
+				<div class="row">
 
 					<!--Goals:) -->
-				    <div ng-show="showGoalSect" class="row" style="background-color:">
-				    	<center> <h3 style="">My goals: </h3></center> </br>
+				    <div ng-show="showGoalSect" class="row">
+				    	<center> <h3 style=""> My goals: </h3></center> </br>
 
 				    	  <div class="well col-md-6" style="background-color:orange">
 				    	  	<h4> To do: </h4></br>
 					    	  	<div ng-repeat="goal in user.goals">
-						    	  <strong style="color:red">For: {{goal.accomplishBy}}</strong> 
+						    	  <strong style="color:red"> For: {{goal.accomplishBy}}</strong> 
 						    	  <input type="checkbox" class="form-control" 
 						    	  ng-click="tickGoal($index)"/>
 						    	    
@@ -100,7 +146,8 @@ style="margin:px;" >
 					    	     <h4> Done!  </h4></br>
 					    	    <div ng-repeat="goal in user.tickedGoals">
 						    	 
-						    	      <span class="glyphicon glyphicon-ok"></span>{{goal.goal}}<button class="btn btn-danger" 
+						    	      <span class="glyphicon glyphicon-ok"></span>{{goal.goal}}
+						    	      <button class="btn btn-danger" 
 						    	      ng-click="deleteGoal($index)">X</button>
 					    	    </div>
 
@@ -115,7 +162,7 @@ style="margin:px;" >
 				    	 <button class="btn pinkButton" ng-click="addNewGoal()"> Add !</button>	
 				    </div>
 
-				    <!--Assingments -->
+				    <!--Assignments -->
 				    <div ng-show="showASect" class="row" style="background-color:">
 				    	<center> <h3 style="">Assignments/Hw: </h3></center> </br>
 
@@ -213,53 +260,18 @@ style="margin:px;" >
 							<button class="btn btn-success btn-lg col-md-3" ng-click="saveClassMod()">Save Changes</button>
 
 						</div>
-					
-					<!--Class Finder (Student) -->
-					<div class="col-md-12 " ng-hide="user.moreInfo.userType">
-						<button class="btn  btn-lg" ng-click="findAllClasses()"> 
-							Click to join a class or club!</button>
-						<div ng-repeat="class in allClasses">
-							{{class.name}} (Year {{class.year}} )
-							<button class="btn btn-xs btn-default" 
-							ng-click="joinAClass($index)" ng-hide="class.sentReq"> 
-							Join</button>
-							<button class="btn btn-xs btn-warning" 
-							ng-show="class.sentReq" > 
-							Request sent</button>
-						
+
+
+						<div class="col-md-12" style="background-color:brown;border-radius:20px;height:100%" ng-show="showAnnSect">
+							ANNOUNCEMENTS
 						</div>
-					</div>
+				
 
 
 					</br></br>
 
-					<!--Class list (for both students and teachers) -->
-					<div class="col-md-12 col-xs-12 roundBlock " style="background-color:" 
-					>
-						
-							
-							<center>
-								<h3>My classes:</h3>
-								
-								<div ng-repeat="class in Classes track by $index" class="hover1">
-								<a ng-href="class/{{class._id}}" >
-									<strong>{{class.name}} Year{{class.year}}
-									 ({{class.classType}})</strong></a>
-								  
-								   <button class="btn btn-xs btn-warning" 
-								   ng-click="modClass($index)" ng-show="user.moreInfo.userType">Edit </button>
-								   
-								   <button class="btn btn-xs btn-danger" 
-								   ng-click="eraseClass($index)" ng-show="user.moreInfo.userType">X</button>
-								  
-								</div></br>
-						
-						
-				    </div>
-
-
-
-			</div>
+				
+			</div> <!-- ending row of makeshift views-->
 
 
 
