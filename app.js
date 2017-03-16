@@ -21,7 +21,7 @@ var uri4 = "mongodb://mgis.students1:bingerville225@ds151279.mlab.com:51279/mymg
 //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
 // mongo ds151279.mlab.com:51279/mymgis1 -u <dbuser> -p <dbpassword>
 
-mongoose.connect(uri3, {
+mongoose.connect(uri4, {
     replset: {
       connectWithNoPrimary:true,
       auto_reconnect: true,
