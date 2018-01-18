@@ -15,8 +15,8 @@ var uri2 = "mongodb://sabrinakoumoin:abidjan54@ds051960.mlab.com:51960/bintoudb"
 var uri3 = "mongodb://127.0.0.1/27017/newproject"
 var uri4 = "mongodb://mgis.students1:bingerville225@ds151279.mlab.com:51279/mymgis1"
 var urii = "mongodb://sabrinakoumoin:abidjan54@ds261247.mlab.com:61247/mpa2"
-    //4 is real ok  
-    //127.0.0.1/27017:3000/mymgis
+    //4 is real okk  
+    //127.0.0.1/27017:3000/mymgiss
     //for mongo shell: mongo ds155405-a0.mlab.com:55405/afribelle -u sabrinakoumoin -p abidjan54
     // mongo ds151279.mlab.com:51279/mymgis1 -u <dbuser> -p <dbpassword>
 
